@@ -182,25 +182,26 @@
     transition: .5s;
 }
 
-.nav-user button:nth-child(1):hover~span
-{
+.nav-user a:nth-child(1):hover~span,
+.nav-user a:nth-child(1).active~span {
     left: 3rem;
+    width: 21rem;
 }
 
-.nav-user button:nth-child(2):hover~span
-{
+.nav-user a:nth-child(2):hover~span,
+.nav-user a:nth-child(2).active~span {
     left: 28rem;
     width: 8.5rem;
 }
 
-.nav-user button:nth-child(3):hover~span
-{
+.nav-user a:nth-child(3):hover~span,
+.nav-user a:nth-child(3).active~span {
     left: 41rem;
     width: 13rem;
 }
 
-.nav-user button:nth-child(4):hover~span
-{
+.nav-user a:nth-child(4):hover~span,
+.nav-user a:nth-child(4).active~span {
     left: 58rem;
     width: 9rem;
 }
@@ -215,7 +216,7 @@
     margin-left: 50rem;
     margin-top: 2rem;
     border-radius: 1%;
-    display: block;
+    display: fixed;
 }
 
 #lblus1, #lblus2, #lblus3, #lblus4, #lblus5, #lblus6, #lblus7, #lblus8
@@ -408,13 +409,80 @@
 
 /*Alterar Endereco*/
 
-.tab
+.pessoal-ende
 {
     width: 70rem;
     height: 40rem;
-    background-color: #000;
+    background-color: #fff;
     margin-left: 50rem;
-    margin-top: -40rem;
+    margin-top: 3rem;
     border-radius: 1%;
     display: none;
 }
+
+#lblus21, #lblus22, #lblus23, #lblus24, #lblus25, #lblus26, #lblus27, #lblus28, #lblus29
+{
+    font-size: 2rem;
+    position: absolute;
+    font-weight: 550;
+}
+
+.inputcidUS, .inputruaUS, .inputbrUS, .inputnumUS, .inputcepUS, .inputrefUS, .inputtempUS, .inputvlrUS, .inputtipUS
+{
+    font-size: 2rem;
+    text-align: left;
+    border-radius: 5px;
+    border-color: rgba(0,0,0,0.3);
+    color: #444444;
+    height: 3rem;
+    display: none;
+}
+
+#lblus21
+{
+    margin-top: 1rem;
+    margin-left: 2rem;
+}
+
+#lblus22
+{  
+    margin-top: -6rem;
+    margin-left: 40rem;
+}
+
+#lblus23
+{
+    margin-left: 2rem;
+    margin-top: 2rem;
+}
+
+#lblus24
+{
+    margin-top: 2rem;
+    margin-left: 22rem;
+}
+
+#lblus25
+{
+    margin-top: 2.1rem;
+    margin-left: 40rem;
+}
+
+#lblus26
+{
+    margin-top: 9rem;
+    margin-left: 2rem;
+}
+
+#lblus27
+{
+    margin-left: 40rem;
+    margin-top: 9rem;
+}
+
+#lblus28
+{
+    margin-left: 2rem;
+    margin-top: 16rem;
+}
+

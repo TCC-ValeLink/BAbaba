@@ -3,10 +3,10 @@
     <div class="body-home">
     <?php include("../controller/funcao-select-user.php") ?>
     <nav class="nav-user">
-        <a onclick="showTab('pessoal-info')">Informações Pessoais</a>
-        <a onclick="showTab('pessoal-ende')">Endereço</a>
-        <a href="#">Outros Dados</a>
-        <a href="#">Curriculo</a>
+        <a>Informações Pessoais</a>
+        <a>Endereço</a>
+        <a>Outros Dados</a>
+        <a>Curriculo</a>
         <span></span>
     </nav>
 
@@ -66,7 +66,7 @@
             </form>
    </div>
 
-   <div class="tab" id="pessoal-ende">
+   <div class="pessoal-ende" id="pessoal-ende">
         <form action="" method="POST">
                <p id="lblus21">Cidade</p>
                <input type="text" class="inputcidUS" name="CID">
@@ -108,15 +108,62 @@
    </div>
 
    <script>
-            function showTab(tabId) {
-            // Oculta todas as abas
-            const tabs = document.querySelectorAll('.tab');
-            tabs.forEach(tab => tab.classList.remove('user-update'));
 
-            // Mostra a aba selecionada
-            const selectedTab = document.getElementById(tabId);
-            selectedTab.classList.add('user-update');
-        }
+    const links = document.querySelectorAll('.nav-user a');
+    const span = document.querySelector('.nav-user span');
+
+    links.forEach(link => {
+        link.addEventListener('click', function() {
+            links.forEach(link => link.classList.remove('active'));
+            
+            this.classList.add('active');
+        });
+    });
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+    const links = document.querySelectorAll('.nav-user a');
+    const userUpdates = document.querySelectorAll('.user-update, .user-update2');
+
+    // Mapeamento dos links e suas divs correspondentes
+    const linkDivMapping = {
+        'Informações Pessoais': 'pessoal-info',
+        'Endereço': 'pessoal-ende',
+        'Outros Dados': 'outros-dados-info',
+        'Currículo': 'curriculo-info',
+        'Configurações': 'configuracoes-info'
+    };
+
+    // Ocultar todas as divs inicialmente
+    userUpdates.forEach(div => div.style.display = 'none');
+
+    // Exibir a primeira div "Informações Pessoais" automaticamente ao carregar a página
+    const firstDivId = linkDivMapping['Informações Pessoais'];
+    const firstDiv = document.getElementById(firstDivId);
+    if (firstDiv) {
+        firstDiv.style.display = 'block';
+    }
+
+    // Adicionar o evento de clique aos links para navegação entre as seções
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // Ocultar todas as divs
+            userUpdates.forEach(div => div.style.display = 'none');
+
+            // Exibir a div correspondente ao link clicado
+            const targetId = linkDivMapping[link.textContent];
+            if (targetId) {
+                const targetDiv = document.getElementById(targetId);
+                if (targetDiv) {
+                    targetDiv.style.display = 'block';
+                }
+            }
+        });
+    });
+});
+
 ;
 </script>
 </div>
