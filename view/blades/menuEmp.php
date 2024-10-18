@@ -23,20 +23,21 @@
             </li>
             
             <li class="item-menu">
-                <a href="./post.php">
+                <a href="./post.php"  onclick="funcaoPost()">
                 <spam class="img-menu"><i class="bi bi-plus-circle-fill"></i></spam>
                 <spam class="txt-spam">Posts</spam>
                 </a>
             </li>
 
             <li class="item-menu">
-                <a href="./CriarVaga.php">
+                <a href="./criarVagas.php" onclick="">
                 <spam class="img-menu"><i class="bi bi-briefcase-fill"></i></spam>
                 <spam class="txt-spam">Criar uma Vaga</spam>
                 </a>
             </li>
         </ul>
 </nav>
+<script src="../abrir.js"></script>
 <script src="../menu.js"></script>
 <!-- <i class="bi bi-briefcase-fill"></i> -->
 <?php Include("footercomp.php")?>

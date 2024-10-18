@@ -1,21 +1,30 @@
 <?php
 
-  include("../model/connect.php");
-  $inicio = 0;
-  $limite = 1;
-  $query = mysqli_query($connect, "SELECT foto_usuario, nome_usuario FROM usuario WHERE '6' = cod_usuario;");
-  while ($exibe = mysqli_fetch_array($query)) {
-      echo "     
-      <div class='topuser'>
-            <img src='../img/fundouser.png' class='capauser'>
-            <img src='../view/imgs-foto-profile-user/$exibe[0]' class='perfiluser'>
-            <p class='nomeuser'>$exibe[1]</p>
-            <div class='funcaoicon'><i class='bi bi-code-slash'></i></div>
-            <p class='funcaouser'>Programador Mobile</p>
+include("../model/connect.php");
 
-            <div class='edituser'><i class='bi bi-pencil-square'></i></div>
-            <p class='editusertxt'>Aqui você pode rever ou alterar suas informações pessoais...</p>
-        </div>";
-  }
+if (isset($_SESSION["idUsuario"])) {
+    $id_usuario = $_SESSION["idUsuario"]; 
+
+    echo $id_usuario;
+    $query = mysqli_query($connect, "SELECT foto_usuario, nome_usuario FROM usuario WHERE cod_usuario = '$id_usuario'");
+    
+    if ($query) {
+        while ($exibe = mysqli_fetch_array($query)) {
+            echo "     
+            <div class='topuser'>
+                <img src='../img/fundouser.png' class='capauser'>
+                <img src='../view/imgs-foto-perfil-user/$exibe[0]' class='perfiluser'>
+                <p class='nomeuser'>$exibe[1]</p>
+                <div class='funcaoicon'><i class='bi bi-code-slash'></i></div>
+                <p class='funcaouser'>Programador Mobile</p>
+                <div class='edituser'><i class='bi bi-pencil-square'></i></div>
+                <p class='editusertxt'>Aqui você pode rever ou alterar suas informações pessoais...</p>
+            </div>";
+        }
+    } else {
+        echo "Erro na consulta: " . mysqli_error($connect);
+    }
+} else {
+    echo "Usuário não está logado. $id_usuario;";
+}
 ?>
-

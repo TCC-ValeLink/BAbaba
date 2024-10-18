@@ -12,7 +12,7 @@
  $destino = "../view/imgs/".$nomeCompleto;
  move_uploaded_file($arquivo['tmp_name'],$destino);
  $hora = date('H:i:s');
- $hoje = date('Y-m-d'); // Definindo a data de hoje
+ $hoje = date('Y-m-d'); 
  $strD = str_replace('/', '', $hoje);
  $strH = str_replace(':','',$hora);
 

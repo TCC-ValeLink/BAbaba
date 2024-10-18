@@ -4,7 +4,6 @@ if (!isset($_SESSION)) {
    session_start();
 }
 
-
 if (isset($_POST['login'])) {
    if ($_POST['login'] === 'usuario') {
       $_SESSION['Usuario'] = '0';
@@ -23,7 +22,7 @@ if (isset($_POST['campo_email']) || isset($_POST['campo_senha'])) {
    } else {
 
       $email = mysqli_real_escape_string($connect, trim($_POST['campo_email']));
-      $senha = mysqli_real_escape_string($connect, string: trim($_POST['campo_senha']));
+      $senha = mysqli_real_escape_string($connect, trim($_POST['campo_senha']));
 
       if (isset($_SESSION['Usuario']) && $_SESSION['Usuario'] == '0') {
          $tabela = 'usuario';
@@ -40,34 +39,42 @@ if (isset($_POST['campo_email']) || isset($_POST['campo_senha'])) {
 
          if ($qtd == 1 && $tabela == 'usuario') {
             $user = $sql_query->fetch_assoc();
-            header("Location: home.php");
-         } else if ($qtd == 1 && $tabela == 'empresa') {
-            $user = $sql_query->fetch_assoc();
-            //Linha sem funcionar
-            $resultado = mysqli_query($connect, "SELECT cod_empresa FROM empresa WHERE email_empresa = 'email_$empresa' ORDER BY cod_empresa DESC LIMIT 1;");
-
-            if (mysqli_num_rows($resultado) > 0) {
-               while ($row = mysqli_fetch_assoc(result: $resultado)) {
-                  $_SESSION["idEmpresa"] = $row['cod_empresa'];
-               }
+            
+            $userIdResult = mysqli_query($connect, "SELECT cod_usuario FROM usuario WHERE email_usuario = '$email';");
+            
+            if (mysqli_num_rows($userIdResult) > 0) {
+               $row = mysqli_fetch_assoc($userIdResult);
+               $_SESSION["idUsuario"] = $row['cod_usuario'];
+               header("Location: home.php");
+               
             } else {
                echo "Nenhum usuário encontrado.";
             }
-            header("Location: perfilPrivEmp.php");
+
+         } else if ($qtd == 1 && $tabela == 'empresa') {
+            $user = $sql_query->fetch_assoc();
+
+            $resultado = mysqli_query($connect, "SELECT cod_empresa FROM empresa WHERE email_empresa = '$email';");
+
+            if (mysqli_num_rows($resultado) > 0) {
+               $row = mysqli_fetch_assoc($resultado);
+               $_SESSION["idEmpresa"] = $row['cod_empresa'];
+               header("Location: perfilPrivEmp.php");
+            } else {
+               echo "Nenhum usuário encontrado.";
+            }
          } else {
             echo "<div id='error_login' class='erro_login'><p>Falha ao logar</p></div>";
          }
       } else {
          echo "<div id='error_login' class='erro_login'><p>Erro na consulta: " . $connect->error . "</p></div>";
       }
-
    }
 }
 ?>
+
 <script>
-
    function hideErrorMessages(event) {
-
       const errorEmail = document.getElementById('error_email');
       const errorPassword = document.getElementById('error_senha');
       const errorLogin = document.getElementById('error_login');

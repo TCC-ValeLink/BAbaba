@@ -270,7 +270,7 @@ ul {
   flex-direction: row;
   align-items: center;
 }
-.postar {
+.postar,.postar2 {
   background-color: #01e581;
   color: #fff;
   border-radius: 5px;
@@ -282,6 +282,12 @@ ul {
   width: 9rem;
   height: 2.5rem;
   position: relative;
+}
+.postar2{
+  height: 3rem !important;
+  width: 10rem !important;
+  margin-top: 1rem;
+  margin-left: 78%;
 }
 .conteudo-postagem{
   width: 100%;
@@ -319,13 +325,18 @@ ul {
 }
 
 .btnClose{
-  margin-left: 70%;
+  margin-left: 90%;
   background-color: #fff;
   outline: none;
   border-width: 0;
   width: 25px;
   height: 25px;
-  transform: translateY(-10px);
+  margin-top: 1rem;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 .custom-file-upload{
   position: relative;
