@@ -25,47 +25,42 @@ if (isset($_POST['campo_email']) || isset($_POST['campo_senha'])) {
 
         $tabela = (isset($_SESSION['Usuario']) && $_SESSION['Usuario'] == '0') ? 'usuario' : 'empresa';
 
-        $sql_code = "SELECT email_$tabela, senha_$tabela FROM $tabela WHERE email_$tabela = '$email' AND senha_$tabela = '$senha';";
+        // Usar prepared statements
+        $stmt = $connect->prepare("SELECT email_$tabela, senha_$tabela FROM $tabela WHERE email_$tabela = ? AND senha_$tabela = ?");
+        $stmt->bind_param("ss", $email, $senha);
+        $stmt->execute();
+        $sql_query = $stmt->get_result();
 
-        $sql_query = $connect->query($sql_code);
+        if ($sql_query && $sql_query->num_rows == 1) {
+            $user = $sql_query->fetch_assoc();
 
-        if ($sql_query) {
-            $qtd = $sql_query->num_rows;
-
-            if ($qtd == 1) {
-                $user = $sql_query->fetch_assoc();
-
-                if ($tabela == 'usuario') {
-                    $userIdResult = mysqli_query($connect, "SELECT cod_usuario FROM usuario WHERE email_usuario = '$email';");
-                    if (mysqli_num_rows($userIdResult) > 0) {
-                        $row = mysqli_fetch_assoc($userIdResult);
-                        $_SESSION["idUsuario"] = $row['cod_usuario'];
-                        header("Location: home.php");
-                        exit;
-                    } else {
-                        echo "Nenhum usuário encontrado.";
-                    }
-                } elseif ($tabela == 'empresa') {
-                    $resultado = mysqli_query($connect, "SELECT cod_empresa FROM empresa WHERE email_empresa = '$email';");
-                    if (mysqli_num_rows($resultado) > 0) {
-                        $row = mysqli_fetch_assoc($resultado);
-                        $_SESSION["idEmpresa"] = $row['cod_empresa'];
-                        header("Location: perfilPrivEmp.php");
-                        exit;
-                    } else {
-                        echo "Nenhum usuário encontrado.";
-                    }
+            if ($tabela == 'usuario') {
+                $userIdResult = mysqli_query($connect, "SELECT cod_usuario FROM usuario WHERE email_usuario = '$email';");
+                if (mysqli_num_rows($userIdResult) > 0) {
+                    $row = mysqli_fetch_assoc($userIdResult);
+                    $_SESSION["idUsuario"] = $row['cod_usuario'];
+                    // Definindo o cookie
+                    setcookie('idUsuario', $row['cod_usuario'], time() + 3600, '/'); // Dura 1 hora
+                    header("Location: home.php");
+                    exit;
                 }
-            } else {
-                echo "<div id='error_login' class='erro_login'><p>Falha ao logar</p></div>";
+            } elseif ($tabela == 'empresa') {
+                $userIdResult = mysqli_query($connect, "SELECT cod_empresa FROM empresa WHERE email_empresa = '$email';");
+                if (mysqli_num_rows($userIdResult) > 0) {
+                    $row = mysqli_fetch_assoc($userIdResult);
+                    $_SESSION["idEmpresa"] = $row['cod_empresa'];
+                    // Definindo o cookie
+                    setcookie('idEmpresa', $row['cod_empresa'], time() + 3600, '/'); // Dura 1 hora
+                    header("Location: perfilPrivEmp.php");
+                    exit;
+                }
             }
         } else {
-            echo "<div id='error_login' class='erro_login'><p>Erro na consulta: " . $connect->error . "</p></div>";
+            echo "<div id='error_login' class='erro_login'><p>Falha ao logar</p></div>";
         }
     }
 }
 ?>
-
 <script>
 function hideErrorMessages(event) {
     const errorEmail = document.getElementById('error_email');

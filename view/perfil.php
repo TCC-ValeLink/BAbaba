@@ -36,6 +36,6 @@
     </div>
 </div>
 <?php include("blades/followemp.php") ?>
-<script src="abrir.js"></script>
+<script src="../abrir.js"></script>
 <?php include("blades/menu.php") ?>
 <?php include("blades/footercomp.php") ?>

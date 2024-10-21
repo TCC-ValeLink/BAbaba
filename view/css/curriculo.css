@@ -1,22 +1,27 @@
 .top-create-curriculo {
     height: 155px;
-    width: 100%;
+    width: 102.8%;
     background-color: #00755c;
-    margin-right: 10rem;
+    margin-left: -1rem;
     padding: 1rem;
     display: flex;
     flex-direction: row;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    
   }
   .info-top-curriculo {
     display: flex;
     flex-direction: column;
     margin-left: 2rem;
     padding-top: 0.4rem;
+    width: 20rem;
   }
   .linha {
     height: 2px;
     background-color: #fff;
     width: 100%;
+    margin-left: -1rem;
   }
   .foto-curriculo {
     border-radius: 50%;
@@ -26,6 +31,7 @@
   }
   h1,h4 {
     color: #fff;
+    margin-left: -1rem;
   }
   .container-create-curriculo{
     width: 800px;
@@ -92,4 +98,22 @@
     margin-left: 105rem;
     margin-top: 23rem;
     position: absolute;
+  }
+
+  .top-create-curriculo .i-especifico
+  {
+    height: 20%; 
+    width: 12%;
+    margin-left: 0rem !important;
+  }
+
+  .top-create-curriculo .h4-especifico
+  {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .top-create-curriculo .h4-especifico p
+  {
+    margin-left: 1rem;
   }
