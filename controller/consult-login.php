@@ -1,7 +1,7 @@
 <?php
-session_start(); 
+session_start();
 include("../model/connect.php");
-
+ 
 if (isset($_POST['login'])) {
     if ($_POST['login'] === 'usuario') {
         $_SESSION['Usuario'] = '0';
@@ -13,7 +13,7 @@ if (isset($_POST['login'])) {
         exit;
     }
 }
-
+ 
 if (isset($_POST['campo_email']) || isset($_POST['campo_senha'])) {
     if (strlen($_POST['campo_email']) == 0) {
         echo "<div id='error_email' class='erro_email'>Preencha seu email</div>";
@@ -22,18 +22,18 @@ if (isset($_POST['campo_email']) || isset($_POST['campo_senha'])) {
     } else {
         $email = mysqli_real_escape_string($connect, trim($_POST['campo_email']));
         $senha = mysqli_real_escape_string($connect, trim($_POST['campo_senha']));
-
+ 
         $tabela = (isset($_SESSION['Usuario']) && $_SESSION['Usuario'] == '0') ? 'usuario' : 'empresa';
-
+ 
         // Usar prepared statements
         $stmt = $connect->prepare("SELECT email_$tabela, senha_$tabela FROM $tabela WHERE email_$tabela = ? AND senha_$tabela = ?");
         $stmt->bind_param("ss", $email, $senha);
         $stmt->execute();
         $sql_query = $stmt->get_result();
-
+ 
         if ($sql_query && $sql_query->num_rows == 1) {
             $user = $sql_query->fetch_assoc();
-
+ 
             if ($tabela == 'usuario') {
                 $userIdResult = mysqli_query($connect, "SELECT cod_usuario FROM usuario WHERE email_usuario = '$email';");
                 if (mysqli_num_rows($userIdResult) > 0) {
@@ -66,7 +66,7 @@ function hideErrorMessages(event) {
     const errorEmail = document.getElementById('error_email');
     const errorPassword = document.getElementById('error_senha');
     const errorLogin = document.getElementById('error_login');
-
+ 
     if (errorEmail && !errorEmail.contains(event.target)) {
         errorEmail.style.display = 'none';
     }
@@ -77,6 +77,6 @@ function hideErrorMessages(event) {
         errorLogin.style.display = 'none';
     }
 }
-
+ 
 document.addEventListener('click', hideErrorMessages);
 </script>

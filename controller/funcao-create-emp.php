@@ -43,7 +43,7 @@ $resultado = mysqli_query($connect, query: "SELECT cod_empresa FROM empresa ORDE
 if (mysqli_num_rows($resultado) > 0) {
     // Exibe os dados de cada linha
     while ($row = mysqli_fetch_assoc(result: $resultado)) {
-        $_SESSION["idEmpresa"] = $row['cod_empresa'];
+        $_COOKIES["idEmpresa"] = $row['cod_empresa'];
     }
 } else {
     echo "Nenhum usuário encontrado.";

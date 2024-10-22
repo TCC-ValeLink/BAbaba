@@ -3,7 +3,7 @@
 <div class="srcdiv">
     <div class="buscar-box">
         <div class="lupa-buscar">
-            <i class="bi bi-search"></i>
+            <label for="src" style="cursor:pointer;"><i class="bi bi-search"></i></label>
         </div>
 
         <div class="input-buscar">

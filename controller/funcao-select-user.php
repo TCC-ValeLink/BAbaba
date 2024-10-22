@@ -1,14 +1,15 @@
 <?php
 include("../model/connect.php");
-
+ 
 if (isset($_COOKIE['idUsuario'])) {
     $cod_usuario = $_COOKIE['idUsuario'];
-
+ 
+    // Consulta para o usuário
     $query = mysqli_query($connect, "SELECT foto_usuario, nome_usuario FROM usuario WHERE cod_usuario = '$cod_usuario'");
-
+ 
     if ($query) {
         while ($exibe = mysqli_fetch_array($query)) {
-            echo "     
+            echo "    
 <div class='topuser'>
 <img src='../img/fundouser.png' class='capauser'>
 <img src='../view/imgs-foto-perfil-user/$exibe[0]' class='perfiluser'>
@@ -23,6 +24,6 @@ if (isset($_COOKIE['idUsuario'])) {
         echo "Erro na consulta: " . mysqli_error($connect);
     }
 } else {
-    echo "Erro na seleção do Cookie.";
+    echo "Usuário não está logado.";
 }
 ?>

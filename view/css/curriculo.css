@@ -1,27 +1,25 @@
 .top-create-curriculo {
     height: 155px;
-    width: 102.8%;
+    width: 102.7%;
     background-color: #00755c;
     margin-left: -1rem;
+    margin-top: -1rem;
     padding: 1rem;
     display: flex;
     flex-direction: row;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    
   }
   .info-top-curriculo {
     display: flex;
     flex-direction: column;
     margin-left: 2rem;
     padding-top: 0.4rem;
-    width: 20rem;
   }
   .linha {
     height: 2px;
     background-color: #fff;
     width: 100%;
-    margin-left: -1rem;
   }
   .foto-curriculo {
     border-radius: 50%;
@@ -31,22 +29,22 @@
   }
   h1,h4 {
     color: #fff;
-    margin-left: -1rem;
   }
   .container-create-curriculo{
     width: 800px;
     height: fit-content;
     background-color: #fff;
     position: absolute;
-    margin-left: 55rem;
-    margin-top: -40rem;
+    margin-left: 50rem;
+    margin-top: -82rem;
     padding: 1rem;
     border-radius: 5px;
     border: 1px solid #8a8989;
     display: none;
     position: absolute;
+    z-index: 1000;
   }
-  
+ 
   .conteudo-curriculo{
     width: 100%;
     height: 100px;
@@ -54,12 +52,12 @@
     font-size: small;
     outline: none;
     margin-top: 1rem;
-    border: 1px solid #ccc; 
-    border-radius: 4px; 
-    padding: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
     resize: none;  
   }
-  
+ 
   .btnCurriculo{
   background-color: #01e581;
   color: #fff;
@@ -74,16 +72,16 @@
   margin-left: 80%;
   }
   .btnCloseCur {
-    margin-left: 90%;
-    background-color: transparent; 
+    margin-left: 91%;
+    background-color: transparent;
     outline: none;
     border-width: 0;
     width: 25px;
     height: 25px;
-    transform: translateY(-10px);
+    transform: translateY(5px);
     position: absolute;
   }
-  
+ 
   .btnCreateCur {
     background-color: #01e581;
     color: #fff;
@@ -98,22 +96,4 @@
     margin-left: 105rem;
     margin-top: 23rem;
     position: absolute;
-  }
-
-  .top-create-curriculo .i-especifico
-  {
-    height: 20%; 
-    width: 12%;
-    margin-left: 0rem !important;
-  }
-
-  .top-create-curriculo .h4-especifico
-  {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .top-create-curriculo .h4-especifico p
-  {
-    margin-left: 1rem;
   }

@@ -80,19 +80,14 @@
 </div>
 
 <script>
-    let estado = false;
-    function funcaoConfig() {
-        if(estado)
-        {
-            document.getElementById("container-config").style.display = "block";
-        }
-
-        else
-        {
-            document.getElementById("container-config").style.display = "none";
-        }
-
-        estado = !estado;
+     let estado = false;
+     function funcaoConfig() {
+    if (!estado) { 
+        document.getElementById("container-config").style.display = "block";
+    } else { 
+        document.getElementById("container-config").style.display = "none";
+    }
+    estado = !estado; // Inverte o valor de estado
     };
 </script>
 <?php Include("footercomp.php")?>

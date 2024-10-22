@@ -7,5 +7,4 @@ $db = 'tcc3etim';
 
 $connect = new mysqli($host, $user, $password);
 $db_select = $connect->select_db($db);
-
 ?>

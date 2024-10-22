@@ -14,7 +14,7 @@
             </li>
             
             <li class="item-menu">
-                <a href="#">
+                <a href="./listar-curriculo.php">
                 <spam class="img-menu"><i class="bi bi-clipboard2-data-fill"></i></spam>
                 <spam class="txt-spam">Curriculos</spam>
                 </a>
@@ -23,21 +23,20 @@
             </li>
             
             <li class="item-menu">
-                <a href="./post.php"  onclick="funcaoPost()">
+                <a href="./post.php">
                 <spam class="img-menu"><i class="bi bi-plus-circle-fill"></i></spam>
                 <spam class="txt-spam">Posts</spam>
                 </a>
             </li>
 
             <li class="item-menu">
-                <a href="./criarVagas.php" onclick="">
+                <a href="./CriarVaga.php">
                 <spam class="img-menu"><i class="bi bi-briefcase-fill"></i></spam>
                 <spam class="txt-spam">Criar uma Vaga</spam>
                 </a>
             </li>
         </ul>
 </nav>
-<script src="../abrir.js"></script>
 <script src="../menu.js"></script>
 <!-- <i class="bi bi-briefcase-fill"></i> -->
 <?php Include("footercomp.php")?>

@@ -1,29 +1,29 @@
 .container-create-vagas
 {
-    width: 70rem;
+    width: 75rem;
     height: 60rem;
     background-color: #fff;
     display: none;
     position: absolute;
     margin-left: 51rem;
     margin-top: 10rem;
-    padding: 0.5rem;
+    padding: 1rem;
     border-radius: 5px;
     border: 1px solid #8a8989;
 }
- 
+
 .container-create-vagas label
 {
     font-size: 2rem;
     position: absolute;
     }
- 
+
 .desclbl
 {
     margin-top: 2rem;
     margin-left: 2rem;
 }
- 
+
 #descricao_vagas
 {
     width: 90%;
@@ -35,7 +35,7 @@
     font-size: 2rem;
     border-color: rgba(0,0,0,0.3);      
 }
- 
+
 .container-create-vagas input
 {
     font-size: 2rem;
@@ -46,13 +46,13 @@
     height: 3rem;
     display: none;
 }
- 
+
 .reqlbl
 {
-    margin-left: -60.7rem;
+    margin-left: -65.5rem;
     margin-top: 23rem;
 }
- 
+
 .inputCV
 {
     width: 90%;
@@ -60,13 +60,13 @@
     margin-top: 4rem;
     display: block !important;
 }
- 
+
 .carlbl
 {
     margin-left: 2rem;
     margin-top: 2rem;
 }
- 
+
 .inputCV2
 {
     width: 25%;
@@ -74,13 +74,13 @@
     margin-top: 5rem;
     display: block !important;
 }
- 
+
 .benelbl
 {
     margin-left: 25rem;
     margin-top: -6rem;
 }
- 
+
 .inputCV3
 {
     width: 45%;
@@ -88,13 +88,13 @@
     margin-top: -3.1rem;
     display: block !important;
 }
- 
+
 .tiplbl
 {
     margin-left: 2rem;
     margin-top: 2rem;
 }
- 
+
 .inputCV4
 {
     width: 30%;
@@ -102,14 +102,8 @@
     margin-top: 5rem;
     display: block !important;
 }
- 
+
 .templbl
-{
-    margin-left: 30rem;
-    margin-top: -6rem;
-}
- 
-.arealbl
 {
     margin-left: 30rem;
     margin-top: -6rem;
@@ -122,13 +116,13 @@
     margin-top: -3rem;
     display: block !important;
 }
- 
+
 .sallbl
 {
     margin-left: 2rem;
     margin-top: 2rem;
 }
- 
+
 .inputCV6
 {
     width: 20%;
@@ -136,12 +130,3 @@
     margin-top: 5rem;
     display: block !important;
 }
-
-.inputCV7
-{
-    width: 30%;
-    margin-left: 30rem;
-    margin-top: -3rem;
-    display: block !important;
-}
- 

@@ -66,6 +66,8 @@ ul {
   margin-top: 3rem;
 }
 
+
+
 .item-src.expandir {
   width: 56.8rem;
   height: 55rem;
@@ -82,6 +84,7 @@ ul {
   cursor: pointer;
   display: flex;
   float: left;
+  transition: transform 0.5s ease;            
 }
 
 .srcdiv .item-src spam:hover {
@@ -92,6 +95,8 @@ ul {
   list-style-type: none;
   align-items: center;
   cursor: pointer;
+  transform: scale(1.1);
+
 }
 
 .srcdiv .item-src .iconsrc {
@@ -107,6 +112,7 @@ ul {
 .srcdiv .item-src .iconsrc > i:hover {
   font-size: 4.1rem;
   color: #8a8989;
+
 }
 
 /* Home Empresa / (usuário?) */
@@ -170,7 +176,14 @@ ul {
   background-color: #01e581;
   margin-left: 20.8%;
   position: fixed;
+  transition: all 0.3s ease;
 }
+
+.btnFollow:hover
+{
+  transform: scale(1.1);
+}
+
 .btnCur{
   margin-right: 0.8rem;
   background-color: #2C6BDB;
@@ -206,7 +219,6 @@ ul {
     display: flex;
     flex-flow:row;
     background-color: #fff;
-    justify-content: end;
     align-items: center;
     border-bottom-left-radius: 10%;
     border-bottom-right-radius: 10%; 
@@ -216,7 +228,7 @@ ul {
   background-color: #fff;
   height: 20px;
   width: 20px;
-  transform: translatex(-360px);
+  display: block;
   margin-top: -1rem;
 }
 
@@ -224,9 +236,26 @@ ul {
   font-size: 2.5rem;
 }
 
+.btnLike
+{
+  margin-left: 2rem;
+  transition: all 0.3s ease;
+}
+
+.btnCur
+{
+  margin-left: 36.5rem;
+  transition: all 0.3s ease;
+}
+
+.btnCur:hover
+{
+  transform: scale(1.1);
+}
+
 .btnLike:hover
 {
-  transition: all 0.3s ease;
+  transform: scale(1.1);
   color: #ff0000;
 }
 .btnClicado
@@ -255,12 +284,14 @@ ul {
   border-radius: 5px;
   border-width: 1px;
   border-color: #8a8989;
-  font-size: 1rem;
+  font-size: 2rem;
   align-items: center;
   text-align: center;
-  width: 10rem;
-  height: 2rem;
-  margin-left: 200px;
+  width: 12rem;
+  height: 8rem;
+  margin-left: 52rem;
+  margin-top: -8rem;
+  position: fixed;
 }
 .top-create-post{
   width: 100%;
@@ -270,7 +301,7 @@ ul {
   flex-direction: row;
   align-items: center;
 }
-.postar,.postar2 {
+.postar {
   background-color: #01e581;
   color: #fff;
   border-radius: 5px;
@@ -282,12 +313,6 @@ ul {
   width: 9rem;
   height: 2.5rem;
   position: relative;
-}
-.postar2{
-  height: 3rem !important;
-  width: 10rem !important;
-  margin-top: 1rem;
-  margin-left: 78%;
 }
 .conteudo-postagem{
   width: 100%;
@@ -325,18 +350,13 @@ ul {
 }
 
 .btnClose{
-  margin-left: 90%;
+  margin-left: 70%;
   background-color: #fff;
   outline: none;
   border-width: 0;
   width: 25px;
   height: 25px;
-  margin-top: 1rem;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+  transform: translateY(-10px);
 }
 .custom-file-upload{
   position: relative;
